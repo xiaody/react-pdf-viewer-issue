@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import * as React from 'react';
 
-function App() {
+// Core viewer
+import { Viewer, Worker } from '@react-pdf-viewer/core';
+
+// Import styles
+import '@react-pdf-viewer/core/lib/styles/index.css';
+
+<Viewer fileUrl="/assets/pdf-open-parameters.pdf" />;
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Worker workerUrl='https://ccsp.gtimg.com/ccsp/js/v2.0/worker/pdf.worker-es5.min.js'>
+      <Viewer fileUrl="/pytest.pdf" />
+    </Worker>
   );
 }
 
-export default App;
